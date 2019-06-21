@@ -7,8 +7,6 @@ class MainStage implements Stage{
   protected boolean isClicked; 
   int numClicked = 0;
   
-  
-  
   MainStage(){  
     ball = new Ball(50,50,30);
     isClicked = false;
@@ -32,6 +30,9 @@ class MainStage implements Stage{
     ball.draw(p); //ballを描く
     ball.move(p); //ballを移動させる
     numClicked++;
+    
+    
+  
   }
 
   @Override
