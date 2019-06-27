@@ -10,7 +10,7 @@ public class Main3 extends PApplet{
   
   Stage curStage; //現在の状態（ステージ）
   public void settings(){
-    size(500,500);
+    size(800,600);
   }
   
   public void setup(){
