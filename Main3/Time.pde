@@ -6,14 +6,16 @@ class Time extends PApplet{
   }
   PFont font;
   int d;
-  int t;
+  int t = 0;
+  int r = 0;
   Time(int d){
     
     this.d = d;
     
-    
-    
-    t = int(random(1000));
+    while(r >= t){
+      r = int(random(1000,10000)) + d * 5000;
+      t = int(random(1000,10000)) + d * 5000;
+    }
   }
   
   int getTime(){
@@ -21,13 +23,20 @@ class Time extends PApplet{
   }
   
   void timeDraw(PApplet p){
-    p.fill(255,0,0);
-    //ellipse(100,100,50,50);
-    p.text(t,700,100);
+    p.fill(255,0,0,t%255);
+    p.textSize(80);
+    p.text(t/60 + "sec",650,100);
+  }
+  
+  void realTime(PApplet p){
+    p.fill(100);
+    p.textSize(7);
+    p.text(r/60 + "sec",10,5);
   }
   
   void countTime(){
     t--;
+    r--;
   }
   
 }

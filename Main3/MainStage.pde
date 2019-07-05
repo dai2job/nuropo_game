@@ -45,6 +45,7 @@ class MainStage implements Stage{
     //時間の描写
     
     t.timeDraw(p);
+    t.realTime(p);
     t.countTime();
     
     
