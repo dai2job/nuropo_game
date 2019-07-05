@@ -1,21 +1,28 @@
-/* Ballをクリックで終了 */
+
 class MainStage implements Stage{
+  
   public static void main(String[] args){
       PApplet.main("Main3"); 
   }
+  PApplet p = new PApplet();
+  Time t = new Time(1);
+  int d;
+  
   protected Ball ball;
   protected boolean isClicked; 
   int numClicked = 0;
   
-  MainStage(){  
+  MainStage(int d){  
     ball = new Ball(50,50,30);
     isClicked = false;
-    
+    this.d = d;
+    PApplet p = new PApplet();
+    //t = new Time(1,p);
   }
   
   @Override
   public Stage next() {
-    if(numClicked > 300) {
+    if(t.getTime()  <= 0) {
       return new Ending();
     }else {
       return this;
@@ -23,13 +30,22 @@ class MainStage implements Stage{
     
     
   }
+  int a = 0;
+  Cards c = new Cards(d);
   
   @Override
   public void action(PApplet p) {
     p.background(255);
-    ball.draw(p); //ballを描く
-    ball.move(p); //ballを移動させる
-    numClicked++;
+    
+    numClicked+= 2;
+    
+    //カードの描写
+    
+    
+    //時間の描写
+    
+    t.timeDraw(p);
+    t.countTime();
     
     
   
