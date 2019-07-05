@@ -52,7 +52,7 @@ class MainStage implements Stage{
     
     t.timeDraw(p);
     t.countTime();
-    
+    t.realTime(p);
     
   
   }
