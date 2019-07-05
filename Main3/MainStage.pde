@@ -22,6 +22,12 @@ class MainStage implements Stage{
   
   @Override
   public Stage next() {
+    
+    
+    if(t.getTime()  <= 0) {
+      return this;
+    }
+    
     if(t.getTime()  <= 0) {
       return new Ending();
     }else {
@@ -45,7 +51,6 @@ class MainStage implements Stage{
     //時間の描写
     
     t.timeDraw(p);
-    t.realTime(p);
     t.countTime();
     
     

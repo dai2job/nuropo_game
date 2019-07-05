@@ -19,7 +19,7 @@ class Time extends PApplet{
   }
   
   int getTime(){
-    return t;
+    return r;
   }
   
   void timeDraw(PApplet p){
