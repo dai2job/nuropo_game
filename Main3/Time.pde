@@ -8,14 +8,13 @@ class Time extends PApplet{
   int d;
   int t = 0;
   int r = 0;
-  Time(int d){
+  Time(int d,PApplet p){
     
     this.d = d;
     
-    while(r/60 > t/60){
-      r = int(random(100,1000)) + d * 500;
-      t = int(random(100,1000)) + d * 500;
-    }
+    t = int(random(500,1000)) + d * 60 * 5;
+    r = t - 60 * 5;
+    //font = p.creatFont("MS Gothic",48,true);
   }
   
   int getTime(){
@@ -23,9 +22,11 @@ class Time extends PApplet{
   }
   
   void timeDraw(PApplet p){
-    p.fill(255,0,0,t%255);
+    p.fill(255,0,0,t*10%255);
     p.textSize(80);
-    p.text(t/60 + "sec",650,100);
+    font = p.createFont("MS Gothic",48,true);
+    p.textFont(font);
+    p.text(t/60 + "秒",650,100);
   }
   
   void realTime(PApplet p){

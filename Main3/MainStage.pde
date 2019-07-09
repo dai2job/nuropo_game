@@ -5,7 +5,7 @@ class MainStage implements Stage{
       PApplet.main("Main3"); 
   }
   PApplet p = new PApplet();
-  Time t = new Time(1);
+  Time t;
   int d;
   
   protected boolean isClicked; 
@@ -17,25 +17,18 @@ class MainStage implements Stage{
     level = l;
     p.println(level);
     c = new Cards(level);
-//=======
-  /*MainStage(int d){  
-    ball = new Ball(50,50,30);
-    isClicked = false;
-    this.d = d;
-    PApplet p = new PApplet();
-    //t = new Time(1,p);*/
-//>>>>>>> e88a25ce8d24bf5831a752052ee3b4238573c3da
+    t = new Time(level,p);
   }
   
   @Override
   public Stage next() {
     
     
-    /*if(t.getTime()  <= 0) {
-      return this;
+    if(t.getTime()  <= 0) {
+      return new Ending();
     }
     
-    if(t.getTime()  <= 0) {
+    /*if(t.getTime()  <= 0) {
       return new Ending();
     }else {
       return this;

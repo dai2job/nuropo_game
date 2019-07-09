@@ -14,6 +14,7 @@ public class Main3 extends PApplet{
   }
   
   public void setup(){
+    createFont("MS Gothic",48,true);
     curStage = new StartScreen();    
   }
   
