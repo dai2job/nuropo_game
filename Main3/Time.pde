@@ -12,9 +12,9 @@ class Time extends PApplet{
     
     this.d = d;
     
-    while(r >= t){
-      r = int(random(1000,10000)) + d * 5000;
-      t = int(random(1000,10000)) + d * 5000;
+    while(r/60 > t/60){
+      r = int(random(100,1000)) + d * 500;
+      t = int(random(100,1000)) + d * 500;
     }
   }
   

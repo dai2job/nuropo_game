@@ -11,6 +11,7 @@ class StartScreen implements Stage{
   
   protected boolean keyPressed = false;
   
+  //MainStageに移動
   @Override
   public Stage next() {
     if(isClicked == true){

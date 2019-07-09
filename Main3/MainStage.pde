@@ -8,23 +8,30 @@ class MainStage implements Stage{
   Time t = new Time(1);
   int d;
   
-  protected Ball ball;
   protected boolean isClicked; 
   int numClicked = 0;
-  
-  MainStage(int d){  
+  int level ;
+  Cards c;
+  MainStage(int l){  
+    isClicked = false;
+    level = l;
+    p.println(level);
+    c = new Cards(level);
+//=======
+  /*MainStage(int d){  
     ball = new Ball(50,50,30);
     isClicked = false;
     this.d = d;
     PApplet p = new PApplet();
-    //t = new Time(1,p);
+    //t = new Time(1,p);*/
+//>>>>>>> e88a25ce8d24bf5831a752052ee3b4238573c3da
   }
   
   @Override
   public Stage next() {
     
     
-    if(t.getTime()  <= 0) {
+    /*if(t.getTime()  <= 0) {
       return this;
     }
     
@@ -32,12 +39,17 @@ class MainStage implements Stage{
       return new Ending();
     }else {
       return this;
+    }*/
+    
+    if(c.isGameClear()) {
+      return new Ending();
+    } else {
+      return this;
     }
-    
-    
   }
+  
   int a = 0;
-  Cards c = new Cards(d);
+//  Cards c = new Cards(level);
   
   @Override
   public void action(PApplet p) {
@@ -46,7 +58,10 @@ class MainStage implements Stage{
     numClicked+= 2;
     
     //カードの描写
+    c.disp_cards(p);
+    c.change_cards();
     
+
     
     //時間の描写
     
@@ -59,7 +74,8 @@ class MainStage implements Stage{
 
   @Override
   public void mouseClicked(PApplet p) {
-    isClicked = isClicked || ball.contains(p.mouseX, p.mouseY);  
+    //isClicked = isClicked || ball.contains(p.mouseX, p.mouseY);  
+    c.search_point(p);
   }
 
   @Override
