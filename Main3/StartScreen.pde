@@ -28,13 +28,14 @@ class StartScreen implements Stage{
 
   @Override
   public void action(PApplet p) {
+    p.strokeWeight(1);
     
     p.background(#2E75B6);
     p.textSize(70);
     p.textAlign(p.CENTER);
     p.fill(255);
     p.textSize(70);
-    p.text("KAZUAWASE" + "\n" +"GAME", p.width / 2.0, p.height/4.0);
+    p.text("KAZUAWASE GAME", p.width / 2.0, p.height/3.0);
     for(int i = 0; i < 3; i++){
       p.fill(255);
       p.rect(p.width * 1/2 - rectX / 2, i * rectY +p.height * 1 / 2, rectX, rectY);
@@ -60,7 +61,7 @@ class StartScreen implements Stage{
         inHard  =true;
       }
     }else{
-      System.out.println("no");
+      p.println("no");
     }
     mX = p.mouseX;
     mY = p.mouseY;

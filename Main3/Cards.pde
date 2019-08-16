@@ -14,13 +14,15 @@ class Cards extends PApplet{
  int handYs[] = new int[6];
  int boardXs[] = new int[6];
  int boardYs[] = new int[6];
- int target = 0;
+ int target;
+ int targets[] = new int[]{20, 100, 567};
  boolean isHands[] = new boolean[6];
  boolean isBoards[] = new boolean[6];
  //数字を持つ
  int tmp = -1;
  //数字を持っているか
  boolean possess = false;
+ PFont font;
  
  
  void change_cards() {
@@ -42,8 +44,8 @@ class Cards extends PApplet{
          possess = false;
          isHands[i] = false;
          return;
-         }
        }
+     }
      
      
     if(isBoards[i]) {
@@ -76,7 +78,10 @@ class Cards extends PApplet{
    for(int i = 0; i < 6; i++) {
      //四角形の描画
      p.fill(255);
+     p.strokeWeight(3);
+     p.stroke(255,0,0);
      p.rect(handXs[i], handYs[i], w, h);
+     p.stroke(0,0,0);
      p.rect(boardXs[i], boardYs[i], w, h);
      
      //hands[], boards[]が-1なら数字を表示しない
@@ -88,12 +93,16 @@ class Cards extends PApplet{
      if(boards[i] != -1) {
        p.text(boards[i], boardXs[i] + w / 2, boardYs[i] + h / 2);
      }
-     p.text(tmp, width / 2, height / 2);
+     //p.text(tmp, width / 2, height / 2);
    }
    change_cards();
  }
  
-
+  void disp_sum(PApplet p) {
+    font = p.createFont("MS Gothic",30,true);
+    p.textFont(font);
+    p.text("縦の合計を" + str(target) + "に", 70, 200, 150, 500);
+  }
  
  boolean isGameClear() {
    int sum1 = 0;
@@ -117,11 +126,11 @@ class Cards extends PApplet{
    
    //数字をランダムで設定
    if(d == 0) {
-    target = 20;
+    target = targets[0];
    } else if(d == 1) {
-    target = 100;
+    target = targets[1];
    } else if(d == 2) {
-    target = 532;
+    target = targets[2];
    }
    
    hands[0] = (int)random(1,target/2);

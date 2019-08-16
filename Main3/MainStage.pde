@@ -25,7 +25,7 @@ class MainStage implements Stage{
     
     
     if(t.getTime()  <= 0) {
-      return new Ending();
+      return new GameOver();
     }
     
     /*if(t.getTime()  <= 0) {
@@ -53,7 +53,7 @@ class MainStage implements Stage{
     //カードの描写
     c.disp_cards(p);
     c.change_cards();
-    
+    c.disp_sum(p);
 
     
     //時間の描写
@@ -64,6 +64,7 @@ class MainStage implements Stage{
     
   
   }
+ 
 
   @Override
   public void mouseClicked(PApplet p) {
